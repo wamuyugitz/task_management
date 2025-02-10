@@ -10,7 +10,6 @@ export class AuthService {
   private signupUrl = `${this.apiUrl}/signup`;
   private loginUrl = `${this.apiUrl}/login`;
 
-  // Define httpOptions
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

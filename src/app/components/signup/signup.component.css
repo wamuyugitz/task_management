@@ -1,12 +1,25 @@
-.card {
-    border: none;
+/* Centering the card and improving spacing */
+.signup-card {
+    width: 420px;
+    /* Increased width for better layout */
     border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: white;
 }
 
+/* Ensure First Name & Last Name are equal width */
+.row .col-md-6 {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+/* Ensures proper alignment of form labels */
+label {
+    font-weight: 500;
+}
+
+/* Input field styling */
 .form-control {
-    border-radius: 8px;
-}
-
-.btn-dark {
     border-radius: 8px;
 }
