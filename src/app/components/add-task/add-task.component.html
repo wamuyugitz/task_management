@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<div class="container d-flex justify-content-center mt-5">
+  <form  class="w-50 shadow-lg p-3" (ngSubmit)="onAddTask()">
+    <div class="mb-3">
+      <label for="">Task Title</label>
+      <input type="text" [(ngModel)]="title" class="form-control" />
+    </div>
+    <div class="mb-3">
+      <label for="">Description</label>
+      <textarea  class="form-control"  rows="5" cols=""></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="">Due Date</label>
+      <input type="datetime" class="form-control" />
+    </div>
+    <div class="mb-3">
+      <label for="">Status</label>
+      <select class="form-select">
+  <option *ngFor="let status of statusOptions" [value]="status">
+    {{ status }}
+  </option>
+</select>
+    </div>
+    <button class="btn btn-dark px-3">Submit</button>
+  </form>
+</div>
