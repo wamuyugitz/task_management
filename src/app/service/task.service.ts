@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class TaskService {
-  private backendUrl = 'http://172.16.11.105:8080/api/tasks';
+  private backendUrl = 'http://172.16.11.105:8080/api/tasks/all';
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
