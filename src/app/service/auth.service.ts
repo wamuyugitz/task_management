@@ -2,13 +2,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'https://your-api.com/auth';
-  private signupUrl = `${this.apiUrl}/signup`;
-  private loginUrl = `${this.apiUrl}/login`;
+  private apiUrl = 'http://172.16.11.105:8080';
+  private signupUrl = `${this.apiUrl}/auth/register`;
+  private loginUrl = `${this.apiUrl}/auth/login`;
 
   private httpOptions = {
     headers: new HttpHeaders({

@@ -3,39 +3,28 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
+  //Marks this class as an injectable service, meaning it can be used throughout the app
   providedIn: 'root',
 })
-export class AuthService {
-  private apiUrl = 'https://your-api.com/auth';
-  private signupUrl = `${this.apiUrl}/signup`;
-  private loginUrl = `${this.apiUrl}/login`;
-
-  // Define httpOptions
+export class TaskService {
+  private backendUrl = 'http://172.16.11.105:8080/api/tasks';
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
     }),
   };
+  constructor(private http: HttpClient) {
 
-  constructor(private http: HttpClient) {}
-
-  //Signup Method
-  signup(userData: any): Observable<any> {
-    return this.http.post(this.signupUrl, userData, this.httpOptions);
   }
 
-  //Login Method
-  login(credentials: any): Observable<any> {
-    return this.http.post(this.loginUrl, credentials, this.httpOptions);
-  }
+  getAllTask(): Observable<any> {
+  const token = localStorage.getItem("token"); 
 
-  //Store Token After Login
-  saveToken(token: string): void {
-    localStorage.setItem('authToken', token);
-  }
-
-  //Retrieve Token for Authentication
-  getToken(): string | null {
-    return localStorage.getItem('authToken');
-  }
+  return this.http.get(this.backendUrl, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}` 
+    }
+  });
+}
 }

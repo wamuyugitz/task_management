@@ -36,8 +36,8 @@ export class SignupComponent {
     }
 
     const userData = {
-      firstName: this.firstName,
-      lastName: this.lastName,
+      firstname: this.firstName,
+      lastname: this.lastName,
       email: this.email,
       username: this.username,
       password: this.password,
