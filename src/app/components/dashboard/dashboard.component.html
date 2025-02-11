@@ -8,23 +8,24 @@
           <th scope="col" class="col-2">Title</th>
           <th scope="col" class="col-4">Description</th>
           <th scope="col" class="col-2">Due date</th>
-          <th scope="col" class="col-2">Status</th>
+          <th scope="col" class="col-2">Completed</th>
           <th scope="col" class="col-2">Action</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let item of tasks; let i = index">
-          <th>{{i + 1}}</th>
-          <td>{{item.title}}</td>
-          <td>{{item.description}}</td>
-          <td>{{item.date}}</td>
-          <td>{{item.completed}}</td>
+          <th>{{ i + 1 }}</th>
+          <td>{{ item.title }}</td>
+          <td>{{ item.description }}</td>
+          <td>{{ item.dueDate }}</td>
+          <td>{{ item.status }}</td>
           <td>
             <button
               type="button"
               class="btn btn-dark p-1"
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
+              (click)="openTaskDetails(item)"
             >
               View task
             </button>
@@ -66,20 +67,20 @@
       <div class="modal-body">
         <div class="d-flex">
           <p class="fw-bold">Task :</p>
-          <p>task 1</p>
+          <p>{{ selectedTask?.title }}</p>
         </div>
         <div class="d-flex">
           <p class="fw-bold">Description:</p>
-          <p> Create a task management system to track tasks.</p>
+          <p>{{ selectedTask?.description }}</p>
         </div>
         <div class="d-flex">
-          <p class="fw-bold">Status</p>
+          <p class="fw-bold">Completed</p>
           :
-          <p>pending</p>
+          <p>{{ selectedTask?.status }}</p>
         </div>
         <div class="d-flex">
           <p class="fw-bold">Due Date :</p>
-          <p>2025-02-27</p>
+          <p>{{ selectedTask?.dueDate }}</p>
         </div>
       </div>
       <div class="modal-footer">

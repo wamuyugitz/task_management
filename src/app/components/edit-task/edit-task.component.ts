@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./edit-task.component.css'],
 })
 export class EditTaskComponent {
-  statusOptions = ['Incomplete', 'Complete', 'In Progress'];
+  statusOptions = ['True', 'False'];
 }
